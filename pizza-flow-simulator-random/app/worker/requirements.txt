@@ -1,0 +1,7 @@
+schedule
+pydantic
+requests
+boto3
+kubernetes==31.0.0
+cryptography
+python-socketio[asyncio_client]

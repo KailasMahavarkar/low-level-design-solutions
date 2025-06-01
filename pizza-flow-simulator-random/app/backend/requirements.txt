@@ -1,0 +1,12 @@
+python-jose[cryptography]
+passlib[bcrypt]
+authlib
+boto3
+fastapi[all]==0.115.5
+JSON-log-formatter
+requests
+python-socketio~=5.11
+redis~=5.2
+sqlmodel<1.0
+psycopg2-binary
+alembic

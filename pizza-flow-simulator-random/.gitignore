@@ -1,0 +1,13 @@
+/venv
+/app/worker/venv
+/app/worker/app/worker.log
+/app/worker/app/worker.log.1
+/app/worker/app/worker.log.2
+/app/worker/app/worker.log.3
+/app/worker/app/worker.log.4
+/app/worker/app/worker.log.5
+__pycache__
+/venv
+.env
+.envrc
+.envrc.dev

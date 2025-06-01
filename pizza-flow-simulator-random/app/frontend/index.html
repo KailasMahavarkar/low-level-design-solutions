@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Ordering System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d32f2f;
+            text-align: center;
+        }
+        .api-links {
+            margin-top: 30px;
+        }
+        .api-link {
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+            background: #f0f0f0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+            border-left: 4px solid #d32f2f;
+        }
+        .api-link:hover {
+            background: #e0e0e0;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e8;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍕 Pizza Ordering System</h1>
+        
+        <div class="status">
+            <h3>System Status</h3>
+            <p>The pizza ordering system is running! This is a backend API service with the following endpoints:</p>
+        </div>
+
+        <div class="api-links">
+            <h3>Available API Endpoints:</h3>
+            <a href="/health" class="api-link">
+                <strong>GET /health</strong> - System health check
+            </a>
+            <a href="/api/pizzas" class="api-link">
+                <strong>GET /api/pizzas</strong> - List all pizzas
+            </a>
+            <a href="/api/rfa" class="api-link">
+                <strong>GET /api/rfa</strong> - Request for Approval endpoints
+            </a>
+            <a href="/api/operations" class="api-link">
+                <strong>GET /api/operations</strong> - Operations management
+            </a>
+            <a href="/api/events" class="api-link">
+                <strong>GET /api/events</strong> - System events
+            </a>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; color: #666;">
+            <p>This is a demo pizza ordering system with automated pizza making workflow.</p>
+            <p>The system includes: Order Management → RFA Approval → Automated Pizza Making (Dough → Toppings → Baking → Delivery)</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple health check
+        fetch('/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('System health:', data);
+            })
+            .catch(error => {
+                console.error('Health check failed:', error);
+            });
+    </script>
+</body>
+</html> 

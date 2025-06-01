@@ -1,0 +1,9 @@
+FROM python:3.13-slim
+
+COPY ./worker/requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
+RUN pip install watchdog
+
+WORKDIR /app/worker/app
+ENTRYPOINT [ "watchmedo" ]
+CMD [ "auto-restart", "-d","/app/worker/app", "--patterns=\"*.py\"", "-R", "-D", "python3", "main.py"]

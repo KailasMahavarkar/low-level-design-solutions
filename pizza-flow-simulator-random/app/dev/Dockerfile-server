@@ -1,0 +1,23 @@
+FROM python:3.13-slim
+RUN apt -qq update \
+    && apt install -y curl \
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
+    && . ~/.nvm/nvm.sh && nvm install --lts \
+    && ln -sf $(which node) /usr/bin/node \
+    && ln -sf $(which npm) /usr/bin/npm 
+
+ENV PORT=8080
+ENV MODULE_NAME=main
+ENV FRONTEND_PORT=8081
+ENV DISABLE_PASSWORD=true
+ENV AWS_ACCESS_KEY_ID=DUMMYIDEXAMPLE
+ENV AWS_SECRET_ACCESS_KEY=DUMMYEXAMPLEKEY
+ENV MIGRATIONS_DIR=/app/backend/migrations
+ENV PYTHONPATH=/app/backend/app
+
+COPY ./backend/requirements.txt /app/requirements.txt
+
+ADD --chmod=755 ./dev/run.sh /run.sh
+RUN pip install -r /app/requirements.txt
+
+WORKDIR /app/backend/app
